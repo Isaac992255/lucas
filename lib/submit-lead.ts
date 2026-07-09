@@ -25,16 +25,16 @@ export type LeadResponse =
   | { success: true }
   | { success: false; message?: string };
 
-const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL as string;
+// Fallback hardcoded because this is a public, client-exposed endpoint anyway
+// (NEXT_PUBLIC_* vars ship to the browser regardless), and Netlify's build
+// didn't have NEXT_PUBLIC_LEADS_API_URL set (.env.local is gitignored and
+// never reaches the deploy). Override via the env var if the endpoint changes.
+const FALLBACK_API_URL =
+  "https://lead-mailer-224870988029.southamerica-east1.run.app/leads";
+
+const API_URL = process.env.NEXT_PUBLIC_LEADS_API_URL || FALLBACK_API_URL;
 
 export async function submitLead(payload: LeadPayload): Promise<LeadResponse> {
-  if (!API_URL) {
-    return {
-      success: false,
-      message: "Falta configurar la URL del servidor de leads.",
-    };
-  }
-
   try {
     const res = await fetch(API_URL, {
       method: "POST",

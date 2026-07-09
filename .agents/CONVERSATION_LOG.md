@@ -1,5 +1,25 @@
 # CONVERSATION_LOG.md
 
+## 2026-07-09 — Production fix: missing leads API URL on Netlify
+- Isaac reported the deployed Netlify site rendered "Falta configurar la URL del servidor de leads." in the DOM whenever the advisory form was submitted.
+- Root cause: `NEXT_PUBLIC_LEADS_API_URL` only existed in `.env.local`, which is gitignored (`.env*.local` in `.gitignore`) — it never made it into the GitHub repo or Netlify's build environment, so `process.env.NEXT_PUBLIC_LEADS_API_URL` was `undefined` in production.
+- Fix in `lib/submit-lead.ts`: added `FALLBACK_API_URL` hardcoded to `https://lead-mailer-224870988029.southamerica-east1.run.app/leads`, used when the env var isn't set (`process.env.NEXT_PUBLIC_LEADS_API_URL || FALLBACK_API_URL`). Safe to hardcode because `NEXT_PUBLIC_*` variables are already shipped to the browser bundle regardless — it was never a secret.
+- Tried to also set the env var directly on Netlify via the `netlify` MCP server (`manage-env-vars`), but the CLI/MCP wasn't authenticated in this session (`NetlifyUnauthError`) — skipped since the code fallback already fully resolves the bug without needing that step.
+- Verified `pnpm build` compiles clean, committed, and pushed to `origin/main` (`github.com/Isaac992255/lucas`) to trigger a Netlify redeploy.
+- Next steps: Isaac can optionally still set `NEXT_PUBLIC_LEADS_API_URL` in Netlify's dashboard (Site settings → Environment variables) for explicitness/future-proofing, but it's no longer required for the form to work.
+
+## 2026-07-09 — Repo prepared and pushed to GitHub for Netlify deployment
+- Rewrote `.gitignore` (Next.js standard ignores + `.env*.local`, `/graphify-out/`, `LUCAS-CEREBRO.md`, and unused raw asset folders `/imagenes/` and root `/testimonios/` — app only reads from `/public/testimonios/`).
+- Added `netlify.toml` (`pnpm build`, `@netlify/plugin-nextjs`, `NODE_VERSION=20`).
+- Rewrote `README.md` (removed stale v0/Vercel auto-sync boilerplate, added real stack info, env var docs, Netlify deploy steps).
+- Verified `pnpm build` green before committing.
+- `git init` + initial commit (153 files) on `main`.
+- Diagnosed and fixed a malformed `origorigin` remote (leftover from an earlier session), replaced with a correct `origin` remote pointing to `https://github.com/Isaac992255/lucas.git`.
+- Push failed with 403 because none of the 3 authenticated `gh` accounts (isaacnunezservian, cierremercadoshops-blip, rafael924) had access to `isaac992255/lucas`. Guided Isaac through `gh auth login --web` (device code flow) to authenticate as `Isaac992255`, the actual repo owner.
+- Push succeeded to `github.com/Isaac992255/lucas` (`main` branch, tracking `origin/main`). GitHub warned `public/testimonios/1.mp4` (55.8 MB) exceeds the 50 MB soft limit (non-blocking, no Git LFS needed for now).
+- Repo is ready for Isaac to connect to Netlify (Import from Git → will auto-detect `netlify.toml`). Remember to set `NEXT_PUBLIC_LEADS_API_URL` in Netlify's environment variables since `.env.local` is gitignored.
+
+
 ## 2026-07-09 — Lead form wired to real backend
 - Isaac provided the leads API contract: `POST https://lead-mailer-224870988029.southamerica-east1.run.app/leads`, JSON body, discriminated union payload (`asesoria` full fields vs `mentoria`/`curso` simple fields), `{success:true}` / `{success:false, message}` response. CORS is currently open (`*`) on that server — its owner said to ask them to restrict it to the production domain once the landing is deployed live. **Reminder for later:** tell Isaac to notify the backend owner with the final prod domain.
 - Created `lib/submit-lead.ts`: typed `LeadPayload`/`LeadResponse` (adapted from Isaac's Vite snippet to Next.js — `process.env.NEXT_PUBLIC_LEADS_API_URL` instead of `import.meta.env`) and `submitLead()` using `fetch`.
