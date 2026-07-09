@@ -1,0 +1,253 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/Sentient-Extralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sentient';
+  src: url('/Sentient-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* Dark section tokens */
+  --background-dark: #0f1629;
+  --background-elevated: #141d33;
+  --foreground-on-dark: #f1f5f9;
+  --foreground-muted-dark: #94a3b8;
+  --border-dark: #1e293b;
+
+  /* Light section tokens */
+  --background-light: #ffffff;
+  --foreground-on-light: #0f172a;
+  --foreground-muted-light: #64748b;
+  --border-light: #e2e8f0;
+
+  /* Accent system */
+  --primary: #963b02;
+  --primary-hover: #d97706;
+  --primary-foreground: #ffffff;
+  --secondary: #963b02;
+  --secondary-variant: #d97706;
+  --tercero: #1d4ed8;
+  --tercero-hover: #2563eb;
+  
+  /* Legacy compat (default = dark) */
+  --background: #0f1629;
+  --foreground: #f1f5f9;
+  --foreground-muted: #94a3b8;
+  --border: #1e293b;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (width >= 768px) {
+    padding-inline: 2rem;
+  }
+
+  @media (width >= 1280px) {
+    padding-inline: 3rem;
+  }
+}
+
+@theme inline {
+  --color-background-dark: var(--background-dark);
+  --color-background-elevated: var(--background-elevated);
+  --color-background-light: var(--background-light);
+  --color-foreground-on-dark: var(--foreground-on-dark);
+  --color-foreground-on-light: var(--foreground-on-light);
+  --color-foreground-muted-dark: var(--foreground-muted-dark);
+  --color-foreground-muted-light: var(--foreground-muted-light);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-border-dark: var(--border-dark);
+  --color-border-light: var(--border-light);
+
+  /* Legacy compat */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-border: var(--border);
+
+  --font-sans: 'General Sans', system-ui, -apple-system, sans-serif;
+  --font-sentient: 'Sentient', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background-dark);
+  color: var(--foreground-on-dark);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Section theme utilities */
+.section-dark {
+  background: var(--background-dark);
+  color: var(--foreground-on-dark);
+}
+
+.section-dark .text-muted {
+  color: var(--foreground-muted-dark);
+}
+
+.section-light {
+  background: var(--background-light);
+  color: var(--foreground-on-light);
+}
+
+.section-light .text-muted {
+  color: var(--foreground-muted-light);
+}
+
+/* Noise overlay — dark sections only */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Reveal animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Accordion animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ─── Hero ambient motion ───────────────────────────────────────────────── */
+
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-3%, 3%) scale(1.06);
+  }
+}
+
+@keyframes ken-burns {
+  0%, 100% {
+    transform: scale(1.06);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@utility animate-blob-float {
+  animation: blob-float 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+@utility animate-ken-burns {
+  animation: ken-burns 24s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Image placeholder treatment */
+.image-placeholder {
+  position: relative;
+  background: linear-gradient(135deg, #1e293b 0%, #0f1629 100%);
+}
+
+/* Focus styles */
+a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* Hide scrollbar utility (carousels, snap containers) */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-muted-dark);
+}

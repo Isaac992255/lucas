@@ -1,0 +1,51 @@
+# ---- Dependencies ----
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+
+# ---- Next.js build output ----
+/.next/
+/out/
+*.tsbuildinfo
+next-env.d.ts
+
+# ---- Testing / coverage ----
+/coverage
+
+# ---- Production ----
+/build
+
+# ---- Environment variables (never commit secrets) ----
+.env
+.env*.local
+
+# ---- Debug logs ----
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+*.pem
+
+# ---- Vercel / Netlify local metadata ----
+.vercel/
+.netlify/
+
+# ---- v0 sandbox internal files ----
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+
+# ---- Internal knowledge / analysis tooling (not needed for deploy) ----
+/graphify-out/
+LUCAS-CEREBRO.md
+
+# ---- Raw/unused source assets (app only reads from /public) ----
+/imagenes/
+/testimonios/
