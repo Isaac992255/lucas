@@ -1,5 +1,11 @@
 # CONVERSATION_LOG.md
 
+## 2026-07-09 — Push copy updates to GitHub
+- Isaac asked to push the latest changes to GitHub.
+- Found 5 modified files (uncommitted copy tweaks, not made by this session): `components/hero-lucas.tsx`, `components/mindset.tsx`, `components/products.tsx`, `components/story.tsx`, `components/testimonials.tsx`.
+- Changes were content-only: hero headline/subheadline rewrite ("La mente detrás del negocio" / fear-of-loss angle), mindset skill copy tightened, removed the ebook product tier from `products.tsx` (now only featured 1:1 + Mentoría), story section wording tweaks (e.g. "un mes" instead of "un año" sleeping on a couch, closing line simplified), and testimonial names/roles updated with real first names + countries (Luis Fernando/Venezuela, Agustín/Argentina, Alexis/México, Mariano/Argentina, Gabriel/Argentina-Salta) plus video file reassignment (3.mp4↔4.mp4 swapped between featured/more lists).
+- Verified `pnpm build` green, committed (`abd7046`), pushed to `origin/main` (`github.com/Isaac992255/lucas`).
+
 ## 2026-07-09 — Production fix: missing leads API URL on Netlify
 - Isaac reported the deployed Netlify site rendered "Falta configurar la URL del servidor de leads." in the DOM whenever the advisory form was submitted.
 - Root cause: `NEXT_PUBLIC_LEADS_API_URL` only existed in `.env.local`, which is gitignored (`.env*.local` in `.gitignore`) — it never made it into the GitHub repo or Netlify's build environment, so `process.env.NEXT_PUBLIC_LEADS_API_URL` was `undefined` in production.
