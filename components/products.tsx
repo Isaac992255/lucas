@@ -8,7 +8,6 @@ import { AdvisoryFormDialog } from "./advisory-form-dialog";
 
 const featured = {
   name: "Asesoría de Negocios 1 a 1 conmigo",
-  price: "USD 1000 -2000 ",
   description: "Reviso tu operación entera frente a frente acá en Tigre (o por videollamada privada). Te digo exactamente dónde estás perdiendo plata, cómo blindar tu capital con mi contrato y pagaré modelo, y cómo escalar sin renegar nunca más.",
   cta: "Aplicar a la asesoría",
   href: "#asesoria",
@@ -16,16 +15,9 @@ const featured = {
 
 const secondary = [
   {
-    name: "Ebook — El Sistema",
-    price: "USD 10 - 20",
-    description: "Todo lo que aprendí a los golpes y durmiendo un año entero en un sillón, condensado en un manual de calle. Cómo arrancar con 250 lucas, filtrar solicitudes en Instagram y armar tu propio Excel sin humo motivacional ni vueltas.",
-    cta: "Comprar ebook",
-    href: "#ebook",
-  },
-  {
     name: "Mentoría Grupal Semanal",
     price: "USD 60 / mes",
-    description: "Encuentros en vivo por Zoom conmigo y otros emprendedores que están en la trinchera del financiamiento privado. Analizamos operaciones reales, resolvemos casos de cobros difíciles (como el caso viral de Adriana) y cruzamos contactos útiles. El progreso es diario.",
+    description: "Encuentros en vivo  conmigo y otros emprendedores que están en la misma. Analizamos operaciones reales, resolvemos casos de cobros difíciles (como el caso viral de Adriana) y cruzamos contactos útiles. El progreso es diario.",
     cta: "Sumarme a la mentoría",
     href: "#mentoria",
     form: {

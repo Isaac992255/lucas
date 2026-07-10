@@ -59,7 +59,7 @@ export function Story() {
               <div className="lg:col-span-5 lg:sticky lg:top-32">
                 <ScrollReveal>
                   <p className="font-sentient text-2xl md:text-3xl font-extralight leading-snug text-foreground-on-dark">
-                    Yo sé lo que es la calle abajo de todo.
+                    Experimenté la calle.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal>
@@ -93,18 +93,18 @@ export function Story() {
               <div className="lg:col-span-5 lg:sticky lg:top-32">
                 <ScrollReveal>
                   <p className="font-sentient text-2xl md:text-3xl font-extralight leading-snug text-foreground-on-dark">
-                    Puse un comercio con dinero ajeno, quebré y dormí un año en un sillón.
+                    Puse un comercio con dinero ajeno, quebré y dormí un mes entero en el piso.
                   </p>
                 </ScrollReveal>
                 <ScrollReveal delay={100}>
-                  <p className="text-foreground-muted-dark text-base md:text-lg leading-relaxed">
-                    Traté de levantar un local gigante sin un peso propio, levantando capitales de otros. Me fue mal. Terminé durmiendo un año entero en el sillón de un familiar. 
+                  <p className="text-foreground-muted-dark text-base md:text-lg leading-relaxed md:pt-5">
+                    Traté de levantar un local gigante sin un peso propio, levantando capitales de otros. Me fue mal. Terminé durmiendo un mes entero en el sillón de un familiar. 
                   </p>
                 </ScrollReveal>
                    <ScrollReveal delay={100}>
                     <br />
                   <p className="text-foreground-muted-dark text-base md:text-lg leading-relaxed">
-  En ese pozo me comí 15 libros de desarrollo personal, empecé a leer la Biblia todas las mañanas y cambié mi mentalidad a base de golpes. No le tengo miedo al error; la experiencia es la única respuesta.
+  En ese pozo me comí 15 libros de desarrollo personal, empecé a leer la Biblia todas las mañanas y cambié mi mentalidad a base de golpes. No le tengo miedo al error, la experiencia es la única respuesta.
                   </p>
                 </ScrollReveal>
               </div>
@@ -158,7 +158,7 @@ export function Story() {
                <ScrollReveal delay={100}>
                 <br />
                 <p className="text-shadow-zinc-800 text-base md:text-lg leading-relaxed">
-                  Vendía iphones y mis clientes me empezaron a pedir financiamiento. Al principio decía que no, hasta que conecté personas necesitadas con dos amigos que financiaban. Empecé a hacer plata comisionando solo cordinando chats de whatsapp </p>
+                  Vendía iphones y mis clientes me empezaron a pedir financiamiento. Al principio decía que no, hasta que conecté personas necesitadas con dos amigos que financiaban. Empecé a hacer plata solo cordinando chats de whatsapp </p>
               </ScrollReveal>
               <br />
                 <ScrollReveal delay={100}>
@@ -231,7 +231,7 @@ export function Story() {
               />
             </div>
             <p className="font-sentient text-2xl md:text-4xl font-extralight leading-snug text-foreground-on-light max-w-3xl">
-              El éxito está a la vuelta de tu casa. Lo único que tenés que hacer es tomar la decisión de ir.
+              El éxito está en una desición.
             </p>
           </ScrollReveal>
         </div>

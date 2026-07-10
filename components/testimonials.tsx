@@ -10,43 +10,45 @@ const featuredTestimonials = [
   {
     id: 1,
     src: "/testimonios/1.mp4",
-    name: "Comerciante — Tigre",
-    role: "Zona Norte GBA",
+    name: "Luis Fernando",
+    role: "Venezuela",
     quote:
       "",
   },
   {
     id: 2,
     src: "/testimonios/2.mp4",
-    name: "Emprendedor — Pilar",
-    role: "Financiamiento privado",
+    name: "Agustín",
+    role: "Argentina",
     quote:
       "",
   },
   {
     id: 3,
-    src: "/testimonios/3.mp4",
-    name: "Emprendedora — CABA",
-    role: "Ecommerce",
+    src: "/testimonios/4.mp4",
+    name: "Alexis",
+    role: "México",
     quote:
       "",
+
   },
 ];
 
 const moreTestimonials = [
   {
+    
     id: 4,
-    src: "/testimonios/4.mp4",
-    name: "Comerciante — San Isidro",
-    role: "Tecnología",
+    src: "/testimonios/3.mp4",
+    name: "Mariano",
+    role: "Argentina",
     quote:
       "",
   },
   {
     id: 5,
     src: "/testimonios/5.mp4",
-    name: "Cliente — Buenos Aires",
-    role: "Servicios",
+    name: "Gabriel",
+    role: "Argentina - Salta",
     quote:
       "",
   },

@@ -20,10 +20,10 @@ const skills = [
   },
   {
     title: "Manejo de mora y cobranza",
-    description: "Diferenciar entre retraso con comunicación o que te quieran boludear. Si mienten, se delega de una al estudio jurídico y cobrador presencial. Cero violencia.",
+    description: "Diferenciar entre retraso con comunicación o intento de engaño. Se delega.",
   },
   {
-    title: "Reinversión y Excel Maestro",
+    title: "Reinversión y Sistema Maestro",
     description: "Seguimiento milimétrico de riesgo por nivel. Si empezás a gastar la ganancia en lujos, morís en el prestamista del barrio. Se reinvierte el 100%.",
   },
 ];

@@ -47,22 +47,22 @@ export function HeroLucas() {
                   variants={itemVariants}
                   className="text-foreground-muted-dark text-xs md:text-sm uppercase tracking-[0.2em] mb-6"
                 >
-                  Las cosas que nadie te va a decir
+                  La mente detrás del negocio
                 </motion.p>
 
                 <motion.h1
                   variants={itemVariants}
                   className="font-sentient text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1.05] tracking-[-0.02em]"
                 >
-                  Hay plata en todos lados.{" "}
-                  <i className="font-light text-primary">Despiértense.</i>
+                  El miedo a perderlo todo te está {" "}
+                  <i className="font-light text-primary">frenando</i>
                 </motion.h1>
 
                 <motion.p
                   variants={itemVariants}
                   className="text-foreground-muted-dark text-base md:text-lg leading-relaxed mt-8 max-w-xl"
                 >
-                  Arranqué con 250 lucas y un Excel. Te enseño el método con el que llegué a mover millones, sin renegar con nadie.
+                  Te enseño un método desde cero para que puedas ganar plata haciendo préstamos sin arriesgar tu capital.
                 </motion.p>
 
                 <motion.div variants={itemVariants} className="mt-10">
